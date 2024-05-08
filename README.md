@@ -10,6 +10,4 @@ pip install -e .
 ```
 
 ## Usage
-```
-
-```
+Refer to `examples` for how to use an SAE. 
