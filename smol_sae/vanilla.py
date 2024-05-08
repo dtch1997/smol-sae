@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from einops import *
+from einops import einsum
 from smol_sae.base import BaseSAE, Loss
 from smol_sae.utils import ConstrainedAdam
 

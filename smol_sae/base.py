@@ -1,8 +1,9 @@
 from torch import nn
 import torch
+from functools import partial
 from transformer_lens import utils
 from dataclasses import dataclass
-from einops import *
+from einops import repeat
 from torch.utils.data import DataLoader
 from torch.optim.lr_scheduler import LambdaLR
 import wandb
@@ -29,13 +30,13 @@ class Config:
 
     validation_interval: int = 1000
 
-    sparsities: tuple = (0.01, 0.1, 1) # L1 loss coefficients
+    sparsities: tuple = (0.01, 0.1, 1)  # L1 loss coefficients
     device: str = "cuda"
 
-    @property 
+    @property
     def n_instances(self):
         return len(self.sparsities)
-        
+
 
 class BaseSAE(nn.Module):
     """
@@ -161,11 +162,13 @@ class BaseSAE(nn.Module):
         x = repeat(cache[hook_pt], "... d -> ... inst d", inst=self.n_instances)
         x_hat = self.forward(x)
 
+        def patch_hook(act, hook, inst_id):
+            return x_hat[:, :, inst_id]
         # run model with recons patched in per instance
         for inst_id in range(self.n_instances):
-            patch_hook = lambda act, hook: x_hat[:, :, inst_id]
+            fwd_hook = partial(patch_hook, inst_id = inst_id)
             loss = model.run_with_hooks(
-                validation, return_type="loss", fwd_hooks=[(hook_pt, patch_hook)]
+                validation, return_type="loss", fwd_hooks=[(hook_pt, fwd_hook)]
             )
             losses[inst_id] = loss.item()
 

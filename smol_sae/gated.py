@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from einops import *
+from einops import einsum
 from utils import ConstrainedAdam
 from base import BaseSAE, Loss
 

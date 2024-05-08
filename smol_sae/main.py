@@ -1,5 +1,4 @@
 from transformer_lens import HookedTransformer
-from einops import *
 import torch
 
 from base import Config
@@ -22,4 +21,3 @@ if __name__ == "__main__":
     sae = RainbowSAE(config, model).cuda()
 
     sae.train(sampler, model, validation, log=True)
-
