@@ -6,7 +6,12 @@ authors = [
     {name = "Daniel Tan", email = "dtch1997@users.noreply.github.com"},
     {name = "Daniel CH Tan", email = "dtch1997@users.noreply.github.com"},
 ]
-dependencies = []
+dependencies = [
+    "torch>=2.3.0",
+    "einops>=0.8.0",
+    "transformer-lens>=1.17.0",
+    "tqdm>=4.66.4",
+]
 requires-python = ">=3.10"
 readme = "README.md"
 license = {text = "MIT"}
@@ -16,6 +21,7 @@ test = [
     "ruff>=0.4.3",
     "pytest>=8.2.0",
     "pyright>=1.1.361",
+    "pre-commit>=3.7.0",
 ]
 
 [build-system]
