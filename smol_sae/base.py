@@ -28,11 +28,14 @@ class Config:
     lr: float = 1e-4
 
     validation_interval: int = 1000
-    not_active_thresh: int = 2
 
-    sparsities: tuple = (0.01, 0.1, 1)
+    sparsities: tuple = (0.01, 0.1, 1) # L1 loss coefficients
     device = "cuda"
 
+    @property 
+    def n_instances(self):
+        return len(self.sparsities)
+        
 
 class BaseSAE(nn.Module):
     """
