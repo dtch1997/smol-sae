@@ -164,9 +164,10 @@ class BaseSAE(nn.Module):
 
         def patch_hook(act, hook, inst_id):
             return x_hat[:, :, inst_id]
+
         # run model with recons patched in per instance
         for inst_id in range(self.n_instances):
-            fwd_hook = partial(patch_hook, inst_id = inst_id)
+            fwd_hook = partial(patch_hook, inst_id=inst_id)
             loss = model.run_with_hooks(
                 validation, return_type="loss", fwd_hooks=[(hook_pt, fwd_hook)]
             )

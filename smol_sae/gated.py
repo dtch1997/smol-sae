@@ -86,5 +86,7 @@ class GatedSAE(BaseSAE):
 
     def calculate_metrics(self, x_hid, losses, *args):
         metrics = super().calculate_metrics(x_hid, losses, *args)
-        metrics |= {f"auxiliary_loss/{i}": l for i, l in enumerate(losses.auxiliary)}
+        metrics |= {
+            f"auxiliary_loss/{i}": loss for i, loss in enumerate(losses.auxiliary)
+        }
         return metrics

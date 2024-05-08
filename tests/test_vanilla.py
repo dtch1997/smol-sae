@@ -33,9 +33,11 @@ def config(device):
         device=device,
     )
 
+
 @pytest.fixture()
 def sae(config, model):
     return VanillaSAE(config, model)
+
 
 def test_vanilla_sae_forward(model, device, sae):
     n_batch = 2
@@ -43,6 +45,7 @@ def test_vanilla_sae_forward(model, device, sae):
     input = torch.randn(n_batch, sae.n_instances, model.cfg.d_model).to(device)
     output = sae(input)
     assert output.shape == input.shape
+
 
 def test_vanilla_sae_patch_loss(model, device, sae: VanillaSAE):
     _, validation = get_splits()
