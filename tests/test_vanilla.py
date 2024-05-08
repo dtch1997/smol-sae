@@ -30,8 +30,9 @@ def config(device):
 
 def test_vanilla(config, model, device):
     sae = VanillaSAE(config, model)
+    n_batch = 32
     input = torch.randn(
-        32, sae.n_instances, model.cfg.d_model
+        n_batch, sae.n_instances, model.cfg.d_model
     ).to(device)
     output = sae(input)
     assert output.shape == input.shape

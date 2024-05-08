@@ -30,7 +30,7 @@ class Config:
     validation_interval: int = 1000
 
     sparsities: tuple = (0.01, 0.1, 1) # L1 loss coefficients
-    device = "cuda"
+    device: str = "cuda"
 
     @property 
     def n_instances(self):
