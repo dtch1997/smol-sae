@@ -57,8 +57,8 @@ class BaseSAE(nn.Module):
         self.sparsities = torch.tensor(config.sparsities).to(config.device)
         self.step = 0
 
-    def decode(self, x):
-        return x
+    def decode(self, h):
+        return h
 
     def encode(self, x):
         return x
@@ -67,7 +67,7 @@ class BaseSAE(nn.Module):
         x_hid, *_ = self.encode(x)
         return self.decode(x_hid)
 
-    def loss(self, x, x_hid, x_hat, steps, *args):
+    def loss(self, x, x_hid, x_hat, fraction, *args):
         pass
 
     @classmethod

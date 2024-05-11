@@ -18,7 +18,7 @@ class GatedSAE(BaseSAE):
         W_dec = torch.randn(
             self.n_instances, self.d_hidden, self.d_model, device=device
         )
-        W_dec /= torch.norm(W_dec, dim=-1, keepdim=True)
+        W_dec /= torch.norm(W_dec, dim=-2, keepdim=True)
         self.W_dec = nn.Parameter(W_dec)
 
         self.W_gate = nn.Parameter(W_dec.mT.clone().to(device))
@@ -63,7 +63,7 @@ class GatedSAE(BaseSAE):
     def decode(self, h):
         return einsum(h, self.W_dec, "... inst h, inst h d -> ... inst d") + self.b_dec
 
-    def loss(self, x, _, x_hat, fraction, gated_act):
+    def loss(self, x, x_hid, x_hat, fraction, gated_act):
         recons_losses = ((x - x_hat) ** 2).mean(dim=0).sum(dim=-1)
 
         lambda_ = min(1, fraction * 20)
