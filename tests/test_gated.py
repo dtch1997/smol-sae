@@ -1,4 +1,3 @@
-
 import torch
 import pytest
 from smol_sae.base import Config
