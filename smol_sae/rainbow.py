@@ -2,7 +2,7 @@ import torch
 from torch import nn
 from einops import einsum
 from torch.optim import Adam
-from base import BaseSAE, Loss
+from smol_sae.base import BaseSAE, Loss
 
 
 class RainbowSAE(BaseSAE):

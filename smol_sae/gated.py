@@ -1,8 +1,8 @@
 import torch
 from torch import nn
 from einops import einsum
-from utils import ConstrainedAdam
-from base import BaseSAE, Loss
+from smol_sae.utils import ConstrainedAdam
+from smol_sae.base import BaseSAE, Loss
 
 
 class GatedSAE(BaseSAE):

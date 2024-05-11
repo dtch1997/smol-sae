@@ -1,9 +1,9 @@
 from transformer_lens import HookedTransformer
 import torch
 
-from base import Config
+from smol_sae.base import Config
 from utils import get_splits, Sampler
-from rainbow import RainbowSAE
+from smol_sae.rainbow import RainbowSAE
 
 if __name__ == "__main__":
     torch.backends.cudnn.benchmark = True
