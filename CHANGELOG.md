@@ -2,6 +2,21 @@
 
 
 
+## v0.0.1 (2024-05-11)
+
+### Chore
+
+* chore: fix lint ([`ff889ef`](https://github.com/dtch1997/smol-sae/commit/ff889efa8950c573a56de266d786bbc4ecbaeca8))
+
+* chore: add badges ([`6d07935`](https://github.com/dtch1997/smol-sae/commit/6d079355c7195b3dfc9d1fac5e70139641cee0ca))
+
+### Fix
+
+* fix: normalization dim, param names ([`f094f39`](https://github.com/dtch1997/smol-sae/commit/f094f39a64aa3bb670ceac496eb9d180e4120a38))
+
+* fix: broken imports ([`b696a48`](https://github.com/dtch1997/smol-sae/commit/b696a4860182091daba4b1fe6b58655eea9e9ba7))
+
+
 ## v0.0.0 (2024-05-09)
 
 ### Chore
