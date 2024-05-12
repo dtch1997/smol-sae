@@ -2,6 +2,13 @@
 
 
 
+## v0.1.0 (2024-05-12)
+
+### Feature
+
+* feat: bump version ([`20b01ef`](https://github.com/dtch1997/smol-sae/commit/20b01ef4895d18de91050d2a675d9d547cc269c1))
+
+
 ## v0.0.1 (2024-05-11)
 
 ### Chore
