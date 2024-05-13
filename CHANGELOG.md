@@ -2,6 +2,15 @@
 
 
 
+## v0.1.1 (2024-05-13)
+
+### Fix
+
+* fix: release ([`4159382`](https://github.com/dtch1997/smol-sae/commit/4159382fbeb5a1257eca5b05b40b46931b70ed88))
+
+* fix: release ([`b28689d`](https://github.com/dtch1997/smol-sae/commit/b28689d9931ad10dc194783136fe5ec462565a5e))
+
+
 ## v0.1.0 (2024-05-12)
 
 ### Feature
